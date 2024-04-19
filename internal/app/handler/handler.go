@@ -1,11 +1,11 @@
 package handler
 
 import (
-	"github.com/XRS0/Sigma-Network/internal/service"
+	"github.com/XRS0/Sigma-Network/internal/app/service"
 	"github.com/gin-gonic/gin"
 )
 
-type Handler struct{
+type Handler struct {
 	service *service.Service
 }
 
