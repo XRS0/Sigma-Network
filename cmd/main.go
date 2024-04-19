@@ -9,14 +9,13 @@ import (
 
 	"github.com/XRS0/Sigma-Network/internal/pkg/app"
 	_ "github.com/lib/pq"
-	"github.com/spf13/viper"
 )
 
 func main() {
 	app := app.New()
 
 	go func() {
-		app.Run(viper.GetString("port"))
+		app.Run()
 	}()
 
 	log.Print("[INFO] Sigma-Network started")
