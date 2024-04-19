@@ -12,6 +12,7 @@ import (
 	"github.com/XRS0/Sigma-Network/internal/app/service"
 	"github.com/jmoiron/sqlx"
 	"github.com/joho/godotenv"
+	"github.com/spf13/viper"
 )
 
 type App struct {
@@ -50,9 +51,9 @@ func New() *App {
 	return App
 }
 
-func (a *App) Run(port string) error {
+func (a *App) Run() error {
 	a.server = &http.Server{
-		Addr:           ":" + port,
+		Addr:           ":" + viper.GetString("port"),
 		Handler:        a.handler.InitRoutes(),
 		MaxHeaderBytes: 1 << 20,
 		ReadTimeout:    10 * time.Second,
